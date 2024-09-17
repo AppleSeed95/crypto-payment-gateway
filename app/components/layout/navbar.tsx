@@ -81,7 +81,7 @@ export default function Navbar() {
     ]
 
     return (
-        <nav className="bg-white dark:bg-gray-800 shadow py-2">
+        <nav className="bg-white dark:bg-gray-800 shadow-2xl py-1">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="w-[30%] flex items-center">
