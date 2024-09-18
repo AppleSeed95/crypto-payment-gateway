@@ -13,7 +13,7 @@ interface WithAnimationProps {
 
 export const WithAnimation = ({ children, mode, delay = 0, isVisible = true, className }: WithAnimationProps) => {
     const { ref, inView } = useInView({
-        triggerOnce: true,
+        triggerOnce: false,
         threshold: 0.1,
     });
 
@@ -85,7 +85,7 @@ export const WithAnimation = ({ children, mode, delay = 0, isVisible = true, cla
                 variants={variants}
                 className={className}
                 transition={{
-                    duration: mode === 'zoom' ? 0.5 : 0.7,
+                    duration: mode === 'zoom' ? 0.7 : 1,
                     ease: 'backInOut'
                 }}
             >
