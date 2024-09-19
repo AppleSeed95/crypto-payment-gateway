@@ -1,7 +1,9 @@
+'use client'
 import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Puzzle, FileText, CircleDollarSignIcon, Gift, ArrowLeftRight } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface SolutionComponentProps {
     onBtnClick: () => void
@@ -12,53 +14,7 @@ interface SolutionComponentProps {
     buttonTitle: string
 }
 
-const solutions = [
-    {
-        name: "Integrations",
-        title: "Ready-to-use Plugins",
-        description: "Use one of many ready-to-use CMS integrations, server-side and client-side libraries.",
-        onBtnClick: () => {
-        },
-        buttonTitle: 'All plugins',
-        icon: < Puzzle className="h-12 w-12 text-primary" />
-    },
-    {
-        name: "Invoices",
-        title: "Create Online Invoices",
-        description: "Get started quickly. Create and send invoices to individuals without coding.",
-        onBtnClick: () => {
-        },
-        buttonTitle: 'Create',
-        icon: <FileText className="h-12 w-12 text-primary" />
-    },
-    {
-        name: "Mass Payouts",
-        title: "Automate Payments",
-        description: "Combine many transactions into single. Save time and money with Mass Payouts.",
-        onBtnClick: () => {
-        },
-        buttonTitle: 'Try now',
-        icon: <CircleDollarSignIcon className="h-12 w-12 text-primary" />
-    },
-    {
-        name: "Payment Link",
-        title: "Accept Donations",
-        buttonTitle: 'Create',
-        description: "No code solution for bloggers, streamers and every kind of media persons.",
-        onBtnClick: () => {
-        },
-        icon: <Gift className="h-12 w-12 text-primary" />
-    },
-    {
-        name: "Exchange",
-        title: "Exchange Crypto",
-        description: "Low-cost crypto exchange solution built in your Plisio Wallet.",
-        onBtnClick: () => {
-        },
-        buttonTitle: 'Exchange',
-        icon: <ArrowLeftRight className="h-12 w-12 text-primary" />
-    },
-]
+
 const SolutionComponent = ({ onBtnClick, name, title, description, icon, buttonTitle }: SolutionComponentProps) => {
     return (
         <Card className=" max-w-sm border-none shadow-lg bg-white dark:bg-gray-800">
@@ -75,12 +31,64 @@ const SolutionComponent = ({ onBtnClick, name, title, description, icon, buttonT
                 </p>
             </CardContent>
             <CardFooter className="flex justify-center">
-                <Button>{buttonTitle}</Button>
+                <Button
+                    onClick={onBtnClick}
+                >{buttonTitle}</Button>
             </CardFooter>
         </Card>
     )
 }
 export default function SolutionPage() {
+    const router = useRouter();
+    const solutions = [
+        {
+            name: "Integrations",
+            title: "Ready-to-use Plugins",
+            description: "Use one of many ready-to-use CMS integrations, server-side and client-side libraries.",
+            onBtnClick: () => {
+                router.push('/integrations')
+            },
+            buttonTitle: 'All plugins',
+            icon: < Puzzle className="h-12 w-12 text-primary" />
+        },
+        {
+            name: "Invoices",
+            title: "Create Online Invoices",
+            description: "Get started quickly. Create and send invoices to individuals without coding.",
+            onBtnClick: () => {
+            },
+            buttonTitle: 'Create',
+            icon: <FileText className="h-12 w-12 text-primary" />
+        },
+        {
+            name: "Mass Payouts",
+            title: "Automate Payments",
+            description: "Combine many transactions into single. Save time and money with Mass Payouts.",
+            onBtnClick: () => {
+                router.push('/mass-payouts')
+            },
+            buttonTitle: 'Try now',
+            icon: <CircleDollarSignIcon className="h-12 w-12 text-primary" />
+        },
+        {
+            name: "Payment Link",
+            title: "Accept Donations",
+            buttonTitle: 'Create',
+            description: "No code solution for bloggers, streamers and every kind of media persons.",
+            onBtnClick: () => {
+            },
+            icon: <Gift className="h-12 w-12 text-primary" />
+        },
+        {
+            name: "Exchange",
+            title: "Exchange Crypto",
+            description: "Low-cost crypto exchange solution built in your Plisio Wallet.",
+            onBtnClick: () => {
+            },
+            buttonTitle: 'Exchange',
+            icon: <ArrowLeftRight className="h-12 w-12 text-primary" />
+        },
+    ]
     return (
         <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
             <div className=" py-10 pt-20 flex gap-2 w-[70vw] mx-auto flex-wrap justify-start">
@@ -91,8 +99,7 @@ export default function SolutionPage() {
                         name={a.name}
                         title={a.title}
                         description={a.description}
-                        onBtnClick={() => {
-                        }}
+                        onBtnClick={a.onBtnClick}
                         icon={a.icon}
                     />
                 ))}

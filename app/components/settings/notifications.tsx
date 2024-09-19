@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Bell, DollarSign, Gift, Newspaper, HelpCircle } from "lucide-react"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
 
@@ -84,14 +84,12 @@ export default function NotificationSettings() {
     }
 
     return (
-        <Card className="w-full max-w-4xl mx-auto">
-            <CardHeader>
-                <CardTitle className="text-2xl font-bold">Notification Settings</CardTitle>
-            </CardHeader>
+        <Card className="w-full w-[30vw] p-6 mx-auto border-none shadow-lg space-y-6  bg-white dark:bg-gray-800 rounded-lg  px-10">
+
             <CardContent className="space-y-6">
                 {notificationOptions.map((option) => (
-                    <div key={option.id} className="flex items-start justify-between">
-                        <div className="flex items-start space-x-4">
+                    <div key={option.id} className="flex items-center justify-between">
+                        <div className="w-[70%] flex items-start space-x-4">
                             <div className="mt-1">{option.icon}</div>
                             <div>
                                 <h3 className="font-semibold">{option.title}</h3>

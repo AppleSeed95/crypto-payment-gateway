@@ -94,7 +94,7 @@ export default function ProfileForm() {
                                     type="button"
                                     variant="outline"
                                     size="icon"
-                                    className="ml-2"
+                                    className="ml-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                                     onClick={() => handleCopy("user@example.com", setCopiedEmail)}
                                 >
                                     {copiedEmail ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
@@ -158,7 +158,7 @@ export default function ProfileForm() {
                                     type="button"
                                     variant="outline"
                                     size="icon"
-                                    className="ml-2"
+                                    className="ml-2 hover:bg-gray-200 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
                                     onClick={() => handleCopy("https://example.com/ref/user123", setCopiedReferral)}
                                 >
                                     {copiedReferral ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}

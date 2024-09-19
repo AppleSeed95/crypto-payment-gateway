@@ -87,7 +87,7 @@ export default function HomeNavbar() {
                                         <User className="h-5 w-5 text-gray-600 dark:text-gray-300" />
                                     </Button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56" align="end" forceMount>
+                                <DropdownMenuContent className="w-56  shadow-lg bg-white dark:bg-gray-900" align="end" forceMount>
                                     <DropdownMenuLabel className="font-normal">
                                         <div className="flex flex-col space-y-1">
                                             <p className="text-sm font-medium leading-none">John Doe</p>
