@@ -74,7 +74,7 @@ export default function ProfileForm() {
                     ref={fileInputRef}
                 />
                 <p className="text-sm text-muted-foreground text-center">
-                    Click to upload. You can upload your site's profile picture in .jpg, .gif, .png.
+                    Click to upload. You can upload your site`s profile picture in .jpg, .gif, .png.
                 </p>
             </div>
 

@@ -1,5 +1,4 @@
 "use client"
-import { useState } from "react"
 import CoinSelector from "@/app/components/solutions/mass-payouts/coinSelector"
 import History from "@/app/components/solutions/mass-payouts/history"
 import SendForm from "@/app/components/solutions/mass-payouts/sendForm"

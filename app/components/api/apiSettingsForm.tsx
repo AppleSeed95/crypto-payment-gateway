@@ -21,7 +21,8 @@ const currencies = [
 ]
 
 export default function ApiSettingsForm() {
-    const [secretKey, setSecretKey] = useState('R6V5Hbzybcm5sIjyM6ByiqZNuBvp9Ppd9Ky1lXqzX6uHWdLvGwsPdJqf5aK1Jg')
+    const secretKey = 'R6V5Hbzybcm5sIjyM6ByiqZNuBvp9Ppd9Ky1lXqzX6uHWdLvGwsPdJqf5aK1Jg'
+    // const [secretKey, setSecretKey] = useState('R6V5Hbzybcm5sIjyM6ByiqZNuBvp9Ppd9Ky1lXqzX6uHWdLvGwsPdJqf5aK1Jg')
     const [copiedKey, setCopiedKey] = useState(false)
     const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([])
     const [open, setOpen] = useState(false)

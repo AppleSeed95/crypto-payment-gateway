@@ -28,7 +28,8 @@ function NavItem({ href, icon: Icon, children }: { href: string; icon: React.Ele
 }
 
 export default function HomeNavbar() {
-    const [unreadNotifications, setUnreadNotifications] = useState(3)
+    const unreadNotifications = 3;
+    // const [unreadNotifications, setUnreadNotifications] = useState(3)
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
     useEffect(() => {
