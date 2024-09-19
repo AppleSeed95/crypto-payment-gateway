@@ -52,7 +52,7 @@ export default function HomeNavbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex-shrink-0 flex items-center">
-                            <Link href="/dashboard" className="flex items-center space-x-2">
+                            <Link href="/" className="flex items-center space-x-2">
                                 <BadgeDollarSign className="w-8 h-8 text-blue-500" />
                                 <span className="text-xl font-bold text-gray-900 dark:text-white">StellarPay</span>
                             </Link>

@@ -1,4 +1,5 @@
 import Navbar from "./components/layout/navbar";
+import Footer from "./components/layout/footer";
 import Image from "next/image";
 import { Eye, CircleDollarSign, Recycle, Maximize2, Puzzle, Gift, Zap, WalletMinimal, FileText, CircleDollarSignIcon, Check, BriefcaseBusiness } from "lucide-react";
 import { WithAnimation } from "./components/other/animated-element";
@@ -517,6 +518,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div >
   );
 }
