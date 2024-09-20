@@ -60,7 +60,7 @@ export default function ChangePasswordForm() {
             </CardContent>
 
             <Dialog open={showModal} onOpenChange={setShowModal}>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-[425px]  bg-white dark:bg-gray-800 dark:text-gray-200 p-14">
                     <DialogHeader>
                         <DialogTitle>Change Password</DialogTitle>
                         <DialogDescription>
@@ -77,7 +77,7 @@ export default function ChangePasswordForm() {
                                 type="password"
                                 value={oldPassword}
                                 onChange={(e) => setOldPassword(e.target.value)}
-                                className="col-span-3"
+                                className="col-span-3 flex-grow border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
@@ -89,7 +89,8 @@ export default function ChangePasswordForm() {
                                 type="password"
                                 value={newPassword}
                                 onChange={handleNewPasswordChange}
-                                className="col-span-3"
+                                className="col-span-3 flex-grow border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
@@ -101,7 +102,7 @@ export default function ChangePasswordForm() {
                                 type="password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="col-span-3"
+                                className="col-span-3 flex-grow border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
                             />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">

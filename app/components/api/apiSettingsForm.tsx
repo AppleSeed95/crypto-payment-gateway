@@ -6,26 +6,27 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Copy, HelpCircle, ChevronsUpDown, Check } from 'lucide-react'
-import { cn } from "@/lib/utils"
+// import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+// import { Copy, HelpCircle, ChevronsUpDown, Check } from 'lucide-react'
+import { Copy, HelpCircle } from 'lucide-react'
+// import { cn } from "@/lib/utils"
 import Link from 'next/link'
 
-const currencies = [
-    { label: "LiteCoin", value: "litecoin" },
-    { label: "Tron", value: "tron" },
-    { label: "Bitcoin", value: "bitcoin" },
-    { label: "Ethereum", value: "ethereum" },
-    { label: "Ripple", value: "ripple" },
-]
+// const currencies = [
+//     { label: "LiteCoin", value: "litecoin" },
+//     { label: "Tron", value: "tron" },
+//     { label: "Bitcoin", value: "bitcoin" },
+//     { label: "Ethereum", value: "ethereum" },
+//     { label: "Ripple", value: "ripple" },
+// ]
 
 export default function ApiSettingsForm() {
     const secretKey = 'R6V5Hbzybcm5sIjyM6ByiqZNuBvp9Ppd9Ky1lXqzX6uHWdLvGwsPdJqf5aK1Jg'
     // const [secretKey, setSecretKey] = useState('R6V5Hbzybcm5sIjyM6ByiqZNuBvp9Ppd9Ky1lXqzX6uHWdLvGwsPdJqf5aK1Jg')
     const [copiedKey, setCopiedKey] = useState(false)
-    const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([])
-    const [open, setOpen] = useState(false)
+    // const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([])
+    // const [open, setOpen] = useState(false)
 
     const handleCopyKey = () => {
         navigator.clipboard.writeText(secretKey)
@@ -34,13 +35,13 @@ export default function ApiSettingsForm() {
     }
 
 
-    const toggleCurrency = (currency: string) => {
-        setSelectedCurrencies((current = []) =>
-            current.includes(currency)
-                ? current.filter(c => c !== currency)
-                : [...current, currency]
-        )
-    }
+    // const toggleCurrency = (currency: string) => {
+    //     setSelectedCurrencies((current = []) =>
+    //         current.includes(currency)
+    //             ? current.filter(c => c !== currency)
+    //             : [...current, currency]
+    //     )
+    // }
 
     return (
         <form className="space-y-6 w-[25vw] bg-white dark:bg-gray-800 mx-auto p-6 px-10 bg-white rounded-lg shadow-lg border-none  text-gray-700 dark:text-gray-300">
@@ -167,7 +168,7 @@ export default function ApiSettingsForm() {
                 </Select>
             </div>
 
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
                 <Label>Supported currencies</Label>
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
@@ -207,7 +208,7 @@ export default function ApiSettingsForm() {
                         </Command>
                     </PopoverContent>
                 </Popover>
-            </div>
+            </div> */}
 
             <div className="space-y-2">
                 <Label htmlFor="expirationPeriod">Expiration period (in minutes)</Label>
