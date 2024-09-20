@@ -1,9 +1,11 @@
 'use client'
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Puzzle, FileText, CircleDollarSignIcon, Gift, ArrowLeftRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import InVoiceForm from "@/app/components/solutions/invoice/invoice"
 
 interface SolutionComponentProps {
     onBtnClick: () => void
@@ -39,6 +41,7 @@ const SolutionComponent = ({ onBtnClick, name, title, description, icon, buttonT
     )
 }
 export default function SolutionPage() {
+    const [openModal, setOpenModal] = useState(false);
     const router = useRouter();
     const solutions = [
         {
@@ -56,6 +59,7 @@ export default function SolutionPage() {
             title: "Create Online Invoices",
             description: "Get started quickly. Create and send invoices to individuals without coding.",
             onBtnClick: () => {
+                setOpenModal(true)
             },
             buttonTitle: 'Create',
             icon: <FileText className="h-12 w-12 text-primary" />
@@ -84,6 +88,7 @@ export default function SolutionPage() {
             title: "Exchange Crypto",
             description: "Low-cost crypto exchange solution built in your Plisio Wallet.",
             onBtnClick: () => {
+                router.push('/exchange')
             },
             buttonTitle: 'Exchange',
             icon: <ArrowLeftRight className="h-12 w-12 text-primary" />
@@ -104,6 +109,11 @@ export default function SolutionPage() {
                     />
                 ))}
             </div>
+            <Dialog open={openModal} onOpenChange={setOpenModal}>
+                <DialogContent className="sm:max-w-[425px]  bg-white dark:bg-gray-800 dark:text-gray-200 p-6">
+                    <InVoiceForm />
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }
