@@ -37,7 +37,19 @@ export default function Home() {
     return (
         <div className="items-center justify-items-center min-h-screen">
             <Navbar />
+            <div className="bg-[#4574eb] pt-20 pb-32 text-white text-center"
+                style={{
+                    borderBottomLeftRadius: '100% 100%',
+                    borderBottomRightRadius: '100% 100%'
+                }}
+            >
+                <div className="text-3xl pt-20 font-bold mb-10">Integration solutions
 
+                </div>
+                <div className="max-w-2xl mx-auto px-4">
+                    Accept Bitcoin and other cryptocurrencies anywhere you take payments
+                </div>
+            </div>
             <div className="text-center py-20">
                 <div className="text-4xl py-10 font-bold text-[#2b2d31]">Plugins</div>
                 <div className="text-[#828cc0]">

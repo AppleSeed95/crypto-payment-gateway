@@ -1,8 +1,10 @@
+'use client'
 import Navbar from "./components/layout/navbar";
 import Footer from "./components/layout/footer";
 import Image from "next/image";
 import { Eye, CircleDollarSign, Recycle, Maximize2, Puzzle, Gift, Zap, WalletMinimal, FileText, CircleDollarSignIcon, Check, BriefcaseBusiness } from "lucide-react";
 import { WithAnimation } from "./components/other/animated-element";
+import MarQuee from "./components/lp/marquee";
 
 const items = [
   'bigcommerce',
@@ -51,7 +53,7 @@ const codes = [
 export default function Home() {
   return (
     <div className="items-center justify-items-center min-h-screen">
-      <Navbar />
+      <Navbar welcomeMode />
       <div className="t-0 py-60 w-full flex">
         <WithAnimation mode="up">
           <div className="w-full flex items-center justify-end max-w-[50vw] pl-20">
@@ -73,7 +75,27 @@ export default function Home() {
           <div className="flex relative  items-center">
             <WithAnimation mode="zoom">
               <Image src={'/img/invoice.svg'} className="w-full h-auto" width={50} height={100} alt="" />
-              <Image src={'/img/create-store.svg'} className="absolute top-40 left-40 w-full h-auto" width={50} height={100} alt="" />
+              <Image
+                src="/img/create-store.svg"
+                className="absolute top-40 left-40 w-full h-auto animate-float"
+                width={50}
+                height={100}
+                alt="Create store illustration"
+              />
+              <style jsx global>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+      `}</style>
+              {/* <Image src={'/img/create-store.svg'} className="absolute top-40 left-40 w-full h-auto" width={50} height={100} alt="" /> */}
             </WithAnimation>
           </div>
         </div>
@@ -145,6 +167,8 @@ export default function Home() {
             </WithAnimation>
           </div>
         </div>
+        <MarQuee />
+
       </div>
 
 
