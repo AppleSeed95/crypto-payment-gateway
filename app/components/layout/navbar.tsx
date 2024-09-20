@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Sun, Moon, BadgeDollarSign, CreditCard, Wallet, Plug, Wrench, BookOpen, HelpCircle, MessageCircle, Shield, Phone } from 'lucide-react'
+import { ChevronDown, BadgeDollarSign, CreditCard, Wallet, Plug, Wrench, BookOpen, HelpCircle, MessageCircle, Shield, Phone } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Toggle } from '@/components/ui/toggle'
 
-const MenuItem = ({ title, items }: { title: string; items: { name: string; href: string; description: string; icon: React.ElementType }[] }) => (
+const MenuItem = ({ title, items, isScrolled }: { title: string; items: { name: string; href: string; description: string; icon: React.ElementType }[]; isScrolled: boolean }) => (
     <div className="relative group">
-        <button className="dark:text-gray-300 flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-blue-500">
+        <button className={`flex items-center space-x-1 text-sm font-medium ${isScrolled ? 'text-blue-500' : 'text-white dark:text-gray-300'} hover:text-blue-300 transition-colors duration-300`}>
             <span>{title}</span>
             <ChevronDown className="w-4 h-4" />
         </button>
@@ -35,45 +34,44 @@ const MenuItem = ({ title, items }: { title: string; items: { name: string; href
     </div>
 )
 
-export default function Navbar() {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light')
+export default function Navbar({ welcomeMode }: { welcomeMode?: boolean }) {
+    const [isScrolled, setIsScrolled] = useState(false)
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
-        if (savedTheme) {
-            setTheme(savedTheme)
-            document.documentElement.classList.toggle('dark', savedTheme === 'dark')
+        if (welcomeMode) {
+            setIsScrolled(true)
+            return
         }
-    }, [])
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light'
-        setTheme(newTheme)
-        localStorage.setItem('theme', newTheme)
-        document.documentElement.classList.toggle('dark', newTheme === 'dark')
-    }
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [welcomeMode])
 
     const menuItems = [
         {
             title: 'Products',
             items: [
-                { name: 'Crypto Payment Gateway', href: '/products/payment-gateway', description: 'Accept crypto payments easily', icon: CreditCard },
-                { name: 'Crypto Wallet', href: '/products/wallet', description: 'Secure storage for your assets', icon: Wallet },
+                { name: 'Crypto Payment Gateway', href: '/', description: 'Accept crypto payments easily', icon: CreditCard },
+                { name: 'Crypto Wallet', href: '/', description: 'Secure storage for your assets', icon: Wallet },
             ],
         },
         {
             title: 'Connect',
             items: [
-                { name: 'API', href: '/connect/api', description: 'Integrate our services into your app', icon: Plug },
-                { name: 'Integration Solution', href: '/connect/integration', description: 'Custom solutions for your business', icon: Wrench },
+                { name: 'API', href: '/integrations', description: 'Integrate our services into your app', icon: Plug },
+                { name: 'Integration Solution', href: '/integrations', description: 'Custom solutions for your business', icon: Wrench },
             ],
         },
         {
             title: 'Learn',
             items: [
-                { name: 'Blog', href: '/learn/blog', description: 'Latest news and articles', icon: BookOpen },
-                { name: 'FAQ', href: '/learn/faq', description: 'Frequently asked questions', icon: HelpCircle },
-                { name: 'Help', href: '/learn/help', description: 'Get support and guidance', icon: MessageCircle },
+                { name: 'Blog', href: '/', description: 'Latest news and articles', icon: BookOpen },
+                { name: 'FAQ', href: '/', description: 'Frequently asked questions', icon: HelpCircle },
+                { name: 'Help', href: '/', description: 'Get support and guidance', icon: MessageCircle },
             ],
         },
         {
@@ -86,45 +84,33 @@ export default function Navbar() {
     ]
 
     return (
-        <nav className="bg-white dark:bg-gray-800 shadow-lg py-1">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="w-[30%] flex items-center">
                         <Link href="/" className="flex-shrink-0 flex items-center space-x-2">
-                            <BadgeDollarSign className="w-8 h-8 text-blue-500" />
-                            <span className="text-xl font-bold text-gray-900 dark:text-white">StellarPay</span>
+                            <BadgeDollarSign className={`w-8 h-8 ${isScrolled ? 'text-blue-500' : 'text-white'} transition-colors duration-300`} />
+                            <span className={`text-xl font-bold ${isScrolled ? 'text-blue-500' : 'text-white dark:text-white'} transition-colors duration-300`}>StellarPay</span>
                         </Link>
                     </div>
                     <div className="flex justify-center items-center">
                         <div className="hidden sm:ml-6 sm:flex items-center sm:space-x-8">
                             {menuItems.map((item) => (
-                                <MenuItem key={item.title} title={item.title} items={item.items} />
+                                <MenuItem key={item.title} title={item.title} items={item.items} isScrolled={isScrolled} />
                             ))}
-                            <Link href="/pricing" className="flex items-center">
-                                <Button variant="ghost" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+                            <Link href="/" className="flex items-center">
+                                <Button variant="ghost" className={`text-sm font-medium ${isScrolled ? 'text-blue-500 hover:text-blue-200' : 'text-white dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400'} transition-colors duration-300`}>
                                     Pricing
                                 </Button>
                             </Link>
                         </div>
                     </div>
                     <div className="w-[30%] flex justify-end items-center space-x-4">
-                        <Toggle
-                            aria-label="Toggle theme"
-                            pressed={theme === 'dark'}
-                            onPressedChange={toggleTheme}
-                        >
-                            {theme === 'light' ? (
-                                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                            ) : (
-                                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                            )}
-                            <span className="sr-only">Toggle theme</span>
-                        </Toggle>
                         <Link href="/login">
-                            <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-900">Login</Button>
+                            <Button variant={isScrolled ? "ghost" : "ghost"} className={`${isScrolled ? 'bg-white text-blue-500 hover:bg-blue-50' : 'border-blue-500 text-white hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-900'} transition-colors duration-300`}>Login</Button>
                         </Link>
                         <Link href="/signup">
-                            <Button className="bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700">Sign Up</Button>
+                            <Button className={`${isScrolled ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-white shadow-none text-blue-500 hover:bg-blue-50'} transition-colors duration-300`}>Sign Up</Button>
                         </Link>
                     </div>
                 </div>
