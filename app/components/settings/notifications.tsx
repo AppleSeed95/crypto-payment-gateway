@@ -88,8 +88,8 @@ export default function NotificationSettings() {
 
             <CardContent className="space-y-6">
                 {notificationOptions.map((option) => (
-                    <div key={option.id} className="flex items-center justify-between">
-                        <div className="w-[70%] flex items-start space-x-4">
+                    <div key={option.id} className="flex flex-col md:flex-row justify-start items-center md:justify-between gap-2">
+                        <div className="w-full md:w-[70%] flex items-start space-x-4">
                             <div className="mt-1">{option.icon}</div>
                             <div>
                                 <h3 className="font-semibold">{option.title}</h3>
