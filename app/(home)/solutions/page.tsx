@@ -96,7 +96,7 @@ export default function SolutionPage() {
     ]
     return (
         <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-            <div className=" py-10 pt-20 flex gap-2 w-[70vw] mx-auto flex-wrap justify-start">
+            <div className=" py-10 pt-20 flex gap-2 w-full md:w-[70%] mx-auto flex-wrap justify-center md:justify-start">
                 {solutions.map((a, idx) => (
                     <SolutionComponent
                         key={idx}

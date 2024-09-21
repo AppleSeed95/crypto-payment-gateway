@@ -59,7 +59,7 @@ const MarqueeWithGradient: React.FC<{ children: React.ReactNode, direction?: "le
 
 export default function MarQueeWithSponsors() {
     return (
-        <div className="flex flex-col w-[50vw] mx-auto gap-8 py-8">
+        <div className="flex flex-col w-full md:w-[50vw] mx-auto gap-8 py-8">
             <MarqueeWithGradient>
                 {firstRowItems.map((item, index) => (
                     <MarqueeItem key={index} icon={item.icon} title={item.title} />

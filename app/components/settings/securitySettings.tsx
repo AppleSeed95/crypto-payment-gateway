@@ -63,7 +63,7 @@ export default function SecuritySettings() {
     }
 
     return (
-        <Card className="w-full w-[30vw] shadow-lg border-none mx-auto bg-white dark:bg-gray-800">
+        <Card className="w-full max-w-md shadow-lg border-none mx-auto bg-white dark:bg-gray-800">
             <CardHeader>
                 <CardTitle>Security Settings</CardTitle>
             </CardHeader>

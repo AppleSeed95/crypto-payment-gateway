@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
     return (
         <div className="w-full bg-gray-100 dark:bg-gray-900 min-h-screen">
-            <div className="container w-[30vw] mx-auto py-10 ">
+            <div className="container max-w-md mx-auto py-10 px-4 ">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                     <TabsList className="shadow-md dark:bg-gray-700 grid w-full grid-cols-3">
                         <TabsTrigger className="hover:bg-gray-200 data-[state=active]:bg-gray-100 dark:data-[state=active]:bg-gray-800 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300" value="profile">Profile</TabsTrigger>

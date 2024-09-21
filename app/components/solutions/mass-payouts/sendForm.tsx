@@ -116,7 +116,7 @@ export default function SendForm() {
                     </div>
                 ))}
             </CardContent>
-            <CardFooter className="flex justify-between">
+            <CardFooter className="flex flex-col md:flex-row justify-between">
                 <Button onClick={addRecipient} variant="outline">
                     <Plus className="h-4 w-4 mr-2" />
                     Add New Recipient

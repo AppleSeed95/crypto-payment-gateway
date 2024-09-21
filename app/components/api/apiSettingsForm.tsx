@@ -44,7 +44,7 @@ export default function ApiSettingsForm() {
     // }
 
     return (
-        <form className="space-y-6 w-[25vw] bg-white dark:bg-gray-800 mx-auto p-6 px-10 bg-white rounded-lg shadow-lg border-none  text-gray-700 dark:text-gray-300">
+        <form className="space-y-6 max-w-md bg-white dark:bg-gray-800 mx-auto p-6 px-10 bg-white rounded-lg shadow-lg border-none  text-gray-700 dark:text-gray-300">
             <div className="space-y-2">
                 <Label htmlFor="integrationType">Integration Type</Label>
                 <Select >
