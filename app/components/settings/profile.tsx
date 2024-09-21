@@ -48,7 +48,7 @@ export default function ProfileForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 w-[30vw] mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg px-10">
+        <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg px-10">
             <div className="space-y-2">
                 <div
                     className="relative w-32 h-32 mx-auto rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center cursor-pointer overflow-hidden group"

@@ -50,7 +50,7 @@ export default function ChangePasswordForm() {
     }
 
     return (
-        <Card className="w-full w-[30vw] border-none shadow-lg mx-auto bg-white dark:bg-gray-800">
+        <Card className="w-full max-w-md border-none shadow-lg mx-auto bg-white dark:bg-gray-800">
             <CardHeader>
                 <CardTitle>Change password</CardTitle>
                 <CardDescription>We recommend doing that every 6 months for your safety.</CardDescription>

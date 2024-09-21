@@ -84,7 +84,7 @@ export default function NotificationSettings() {
     }
 
     return (
-        <Card className="w-full w-[30vw] p-6 mx-auto border-none shadow-lg space-y-6  bg-white dark:bg-gray-800 rounded-lg  px-10">
+        <Card className="w-full max-w-md p-6 mx-auto border-none shadow-lg space-y-6  bg-white dark:bg-gray-800 rounded-lg  px-4">
 
             <CardContent className="space-y-6">
                 {notificationOptions.map((option) => (
