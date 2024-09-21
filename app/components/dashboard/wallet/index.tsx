@@ -125,7 +125,7 @@ export default function MyWallets() {
     return (
         <Card className="bg-white dark:bg-gray-800 w-full min-w-[30vw] max-w-2xl shadow-xl border-none">
             <CardHeader className=" space-y-0 pb-2">
-                <div className='w-full flex flex-row items-center justify-between'>
+                <div className='w-full flex flex-row flex-wrap items-center justify-between'>
                     <div className='flex flex-row items-center gap-2'>
                         <CardTitle className="text-2xl font-bold">My Wallets</CardTitle>
                         <div className="text-xl font-semibold">${totalBalance.toFixed(2)} USD</div>
@@ -134,17 +134,17 @@ export default function MyWallets() {
                         <DialogTrigger asChild>
                             <Button>Edit</Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px] md:min-w-[800px] bg-white dark:bg-gray-800 dark:text-gray-200 p-14">
+                        <DialogContent className="max-h-screen overflow-scroll sm:max-w-[425px] md:min-w-[800px] bg-white dark:bg-gray-800 dark:text-gray-200 p-14">
                             <DialogHeader>
                                 <DialogTitle>Edit wallets</DialogTitle>
                                 <DialogDescription>
                                     You can create, enable or disable desired currencies to be appeared on Dashboard page.
                                 </DialogDescription>
                             </DialogHeader>
-                            <div className="grid grid-cols-5 gap-4">
+                            <div className="flex flex-wrap md:grid grid-cols-5 gap-4">
                                 {
                                     coins.map((a, idx) => (
-                                        <div key={idx} className='flex flex-col justify-between border border-gray-200 dark:border-gray-700 rounded-md p-3'>
+                                        <div key={idx} className='w-full flex flex-col justify-between border border-gray-200 dark:border-gray-700 rounded-md p-3'>
                                             <div className='flex flex-col '>
                                                 <Image src={`/img/coins/${a.key}.svg`} width={50} height={50} className='mx-auto w-8 h-8' alt='' />
                                                 <div className='text-sm text-center font-bold'>
@@ -179,7 +179,7 @@ export default function MyWallets() {
                         onOpenChange={() => toggleWallet(wallet.name)}
                     >
                         <CollapsibleTrigger asChild>
-                            <div className="flex  items-center justify-between py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-2">
+                            <div className="flex flex-wrap items-center justify-between py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-2">
                                 <div className="flex items-center space-x-4">
                                     <div className="w-10 h-10 bg-primary dark:bg-gray-600 rounded-full flex items-center justify-center text-white font-bold">
                                         {wallet.symbol}
@@ -189,7 +189,7 @@ export default function MyWallets() {
                                         <div className="text-sm text-gray-500">{wallet.amount} {wallet.symbol}</div>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-4">
+                                <div className="flex items-center w-full md:w-auto justify-between space-x-4">
                                     <div className="text-right">
                                         <div className="font-semibold">${(wallet.amount * wallet.price).toFixed(2)}</div>
                                         <div className="text-sm text-gray-500">1 {wallet.symbol} = ${wallet.price}</div>
